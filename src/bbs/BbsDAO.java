@@ -19,7 +19,8 @@ public class BbsDAO {
 		PreparedStatement pstmt = null;
 		StringBuffer sql = new StringBuffer();
 		
-		sql.append(" insert into bbs(bbsno, wname, title, content, passwd, wdate, grpno, ident, ansnum) ");
+		sql.append(" insert into bbs(bbsno, wname, title, content, ");
+		sql.append(" passwd, wdate, grpno, ident, ansnum) ");
 		sql.append(" values((select nvl(max(bbsno),0) + 1 as bbsno from bbs), ");
 		sql.append(" ?,?,?,?,sysdate,?,?,?) ");
 
@@ -55,10 +56,8 @@ public class BbsDAO {
 
 		int ansnum = (Integer) map.get("ansnum");
 		int grpno = (Integer) map.get("grpno");
-
-		System.out.println(ansnum+" "+grpno);
 		
-		sql.append("update ");
+		sql.append("update bbs ");
 		sql.append("set ansnum = ansnum + 1 ");
 		sql.append("where grpno = ? and ansnum > ? ");
 
@@ -85,7 +84,6 @@ public class BbsDAO {
 
 		StringBuffer sql = new StringBuffer();
 		sql.append(" SELECT bbsno, title, grpno,  indent, ansnum ");
-		;
 		sql.append(" FROM bbs   ");
 		sql.append(" WHERE bbsno = ?  ");
 
@@ -169,19 +167,15 @@ public class BbsDAO {
 		sql.append(" from( ");
 		sql.append("     SELECT bbsno, wname, title, viewcnt, wdate, grpno, indent, ansnum, rownum r ");
 		sql.append("     from ( ");
-
 		sql.append("           SELECT bbsno, wname, title, viewcnt, wdate, grpno, indent, ansnum  ");
 		sql.append("           FROM bbs   ");
-
 		if (word.trim().length() > 0 && col.equals("title_content")) {
 			sql.append("       where title like '%'||?||'%' ");// =>'%Пе%' Пе=>word
 			sql.append("       or  content like '%'||?||'%' ");
 		} else if (word.trim().length() > 0) {
 			sql.append("       where " + col + " like '%'||?||'%' ");
 		}
-
 		sql.append(" 		   ORDER BY grpno DESC, ansnum ");
-
 		sql.append("         ) ");
 		sql.append("  )        ");
 		sql.append(" where r  >= ? and r <= ? ");

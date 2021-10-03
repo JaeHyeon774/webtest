@@ -16,36 +16,36 @@
 <title>게시판</title>
 <meta charset="utf-8">
 <script>
-  	function update(){
+	function update(){
   		let url = 'updateForm.jsp';
   		url += '?bbsno=<%=dto.getBbsno()%>';
+  		url += "&col=<%=request.getParameter("col")%>";
+  		url += "&word=<%=request.getParameter("word")%>";
+  		url += "&nowPage=<%=request.getParameter("nowPage")%>";
   		
   		location.href=url;
   	}
   	function del(){
   		let url = 'deleteForm.jsp';
   		url += '?bbsno=<%=dto.getBbsno()%>';
-  		url += "&col=<%=request.getParameter("col")%>";
-		url += "&word=<%=request.getParameter("word")%>";
-		url += "&nowPage=<%=request.getParameter("nowPage")%>";
-
-		location.href = url;
-	}
+  		
+  		location.href= url;
+  	}
+  	
   	function reply(){
   		let url = 'replyForm.jsp';
   		url += '?bbsno=<%=dto.getBbsno()%>';
   		
-  		location.href = url;
+  		location.href= url;
   	}
-  	
   	function list(){
-  		let url = 'list.jsp';
-		url += "?col=<%=request.getParameter("col")%>";
-		url += "&word=<%=request.getParameter("word")%>";
-		url += "&nowPage=<%=request.getParameter("nowPage")%>";
-
-		location.href = url;
-	}
+  		let url = "list.jsp";
+  		url += "?col=<%=request.getParameter("col")%>";
+  		url += "&word=<%=request.getParameter("word")%>";
+  		url += "&nowPage=<%=request.getParameter("nowPage")%>";
+  		
+  		location.href=url;
+  	}
 </script>
 </head>
 <body>

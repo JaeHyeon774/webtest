@@ -57,25 +57,21 @@
 		<form class='form-inline' action='list.jsp' method="get">
 			<div class='form-group'>
 				<select class='form-control' name='col'>
-					<option value="wname" 
-					<% if(col.equals("wname")) out.print("selected"); %>
-					>성명</option>
+					<option value="wname"
+						<% if(col.equals("wname")) out.print("selected"); %>>성명</option>
 					<option value="title"
-					<% if(col.equals("title")) out.print("selected"); %> 
-					>제목</option>
+						<% if(col.equals("title")) out.print("selected"); %>>제목</option>
 					<option value="content"
-					<% if(col.equals("content")) out.print("selected"); %>
-					>내용</option>
+						<% if(col.equals("content")) out.print("selected"); %>>내용</option>
 					<option value="title_content"
-					<% if(col.equals("title_content")) out.print("selected"); %>
-					>제목+내용</option>
+						<% if(col.equals("title_content")) out.print("selected"); %>>제목+내용</option>
 					<option value="total"
-					<% if(col.equals("total")) out.print("selected"); %>
-					>전체출력</option>
+						<% if(col.equals("total")) out.print("selected"); %>>전체출력</option>
 				</select>
 			</div>
 			<div class='form-group'>
-				<input type='search' name="word" value="<%=word %>" class='form-group' placeholder='검색어를 입력하세요.'>
+				<input type='search' name="word" value="<%=word %>"
+					class='form-control' placeholder='검색어를 입력하세요.'>
 			</div>
 			<button>검색</button>
 			<button class='btn' onclick="location.href='createForm.jsp'">등록</button>
@@ -107,18 +103,16 @@
 				<tr>
 					<td><%=dto.getBbsno()%></td>
 					<td>
-					<%
+						<%
 					for(int r = 0; r < dto.getIndent(); r++){
 						out.print("&ndsp;&ndsp;");
 					}
 					if(dto.getIndent() > 0){
 						out.print("<img src ='../images/re.jpg'>");
 					}
-					%>
-					<a href="javascript:read('<%=dto.getBbsno()%>')"><%=dto.getTitle()%></a>
-					<%if(Utility.compareDay(dto.getWdate())){%>
-					<img src="../images/new.gif">
-					<%} %>
+					%> <a href="javascript:read('<%=dto.getBbsno()%>')"><%=dto.getTitle()%></a>
+						<%if(Utility.compareDay(dto.getWdate())){%> <img
+						src="../images/new.gif"> <%} %>
 					</td>
 					<td><%=dto.getWname()%></td>
 					<td><%=dto.getGrpno()%></td>
