@@ -28,6 +28,9 @@
   	function del(){
   		let url = 'deleteForm.jsp';
   		url += '?bbsno=<%=dto.getBbsno()%>';
+  		url += "&col=<%=request.getParameter("col")%>";
+  		url += "&word=<%=request.getParameter("word")%>";
+  		url += "&nowPage=<%=request.getParameter("nowPage")%>";
   		
   		location.href= url;
   	}

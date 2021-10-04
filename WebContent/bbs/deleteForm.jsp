@@ -16,7 +16,10 @@
 	<div class="container">
 		<h1 class="col-sm-offset-2 col-sm-10">삭제</h1>
 		<form class="form-horizontal" action="deleteProc.jsp" method="post">
-			<input type="hidden" name='bbsno' value='<%= request.getParameter("bbsno")%>'>
+			<input type="hidden" name='bbsno' value='<%=request.getParameter("bbsno")%>'>
+			<input type="hidden" name='col' value='<%=request.getParameter("col")%>'>
+			<input type="hidden" name='word' value='<%=request.getParameter("word")%>'>
+			<input type="hidden" name='nowPage' value='<%=request.getParameter("nowPage")%>'>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="passwd">비밀번호</label>
 				<div class="col-sm-6">

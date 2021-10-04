@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<jsp:useBean class="bbs.BbsDAO" id="dao"/>
 <%@ page import="bbs.BbsDTO" %>
+
+<jsp:useBean class="bbs.BbsDAO" id="dao"/>
 
 <%
 	int bbsno = Integer.parseInt(request.getParameter("bbsno"));

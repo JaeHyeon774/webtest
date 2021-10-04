@@ -20,7 +20,7 @@ public class BbsDAO {
 		StringBuffer sql = new StringBuffer();
 		
 		sql.append(" insert into bbs(bbsno, wname, title, content, ");
-		sql.append(" passwd, wdate, grpno, ident, ansnum) ");
+		sql.append(" passwd, wdate, grpno, indent, ansnum) ");
 		sql.append(" values((select nvl(max(bbsno),0) + 1 as bbsno from bbs), ");
 		sql.append(" ?,?,?,?,sysdate,?,?,?) ");
 
@@ -200,6 +200,7 @@ public class BbsDAO {
 
 			while (rs.next()) {
 				BbsDTO dto = new BbsDTO();
+//				bbsno, wname, title, viewcnt, to_Char(wdate,'yyyy-mm-dd') as wdate, grpno, indent, ansnum, r
 				dto.setBbsno(rs.getInt("bbsno"));
 				dto.setGrpno(rs.getInt("grpno"));
 				dto.setIndent(rs.getInt("indent"));

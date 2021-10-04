@@ -4,7 +4,7 @@
 %>
 <jsp:useBean class="bbs.BbsDAO" id="dao" />
 <jsp:useBean class="bbs.BbsDTO" id="dto" />
-<jsp:setProperty name="dto" property="*" />
+<jsp:setProperty name="dto" property="*" /> <%-- 이부분 공부하기. --%>
 <%
 	boolean flag = dao.create(dto);
 %>

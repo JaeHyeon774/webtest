@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*,bbs.*, utility.*"%>
-<jsp:useBean class="bbs.BbsDAO" id="dao" />
-<%-- DB연결 --%>
+<jsp:useBean class="bbs.BbsDAO" id="dao" /><%-- DB연결 --%>
 <%
 	//검색관련
 	String col = Utility.checkNull(request.getParameter("col"));
@@ -105,7 +104,7 @@
 					<td>
 						<%
 					for(int r = 0; r < dto.getIndent(); r++){
-						out.print("&ndsp;&ndsp;");
+						out.print("&nbsp;&nbsp;");
 					}
 					if(dto.getIndent() > 0){
 						out.print("<img src ='../images/re.jpg'>");

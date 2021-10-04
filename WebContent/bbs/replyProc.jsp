@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ page import="java.util.*" %>
+<%@ page import="java.util.*"%>
 <%
 	request.setCharacterEncoding("utf-8");
 %>
@@ -7,14 +7,12 @@
 <jsp:useBean class="bbs.BbsDTO" id="dto" />
 <jsp:setProperty name="dto" property="*" />
 <%
-
 	Map map = new HashMap();
 	map.put("grpno", dto.getGrpno());
 	map.put("ansnum", dto.getAnsnum());
-	
+
 	dao.upAnsnum(map);
-	
-	boolean flag = dao.create(dto);
+	boolean flag = dao.createReply(dto);
 %>
 <!DOCTYPE html>
 <html>
@@ -34,7 +32,8 @@
 				}
 			%>
 		</div>
-		<button class="btn" onclick="location.href='createForm.jsp'">새로운 게시글 등록</button>
+		<button class="btn" onclick="location.href='createForm.jsp'">새로운
+			게시글 등록</button>
 		<button class="btn" onclick="location.href='list.jsp'">목록</button>
 	</div>
 </body>
